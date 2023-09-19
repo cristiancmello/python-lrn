@@ -105,3 +105,23 @@ def list_slicing_reverse_all_letters(letters):
 def list_slicing_uppercase_using_slice_operator(letters):
     return letters[slice(None, None, 2)]
 
+
+def cartesian_product_tshirts(colors, sizes):
+    return [(color, size) for color in colors for size in sizes]
+
+
+def cartesian_product_tshirts_nestedloop(colors, sizes):
+    tshirts = []
+    for color in colors:
+        for size in sizes:
+            tshirts.append((color, size))
+
+    return tshirts
+
+
+def cartesian_product(l1, l2):
+    return [a * b for a in l1 for b in l2]
+
+
+def generate_codes_using_genexp(symbols):
+    return list(ord(c) for c in symbols)

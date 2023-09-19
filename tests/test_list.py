@@ -2,7 +2,7 @@ import collections
 import unittest
 from collections.abc import Sequence
 
-from kata_1.list_examples import *
+from kata_1.list import *
 
 
 class TestList(unittest.TestCase):
@@ -71,3 +71,28 @@ class TestList(unittest.TestCase):
     def test_listcomps_vs_lambda_mapfilter_beyond_ascii(self):
         self.assertEquals(beyond_ascii_listcomps('$¢£¥€¤'), [162, 163, 165, 8364, 164])
         self.assertEquals(beyond_ascii_mapfilter('$¢£¥€¤'), [162, 163, 165, 8364, 164])
+
+    def test_cartesian_product(self):
+        colors = ['black', 'white']
+        sizes = ['S', 'M', 'L']
+        tshirts = [
+            ('black', 'S'),
+            ('black', 'M'),
+            ('black', 'L'),
+            ('white', 'S'),
+            ('white', 'M'),
+            ('white', 'L')
+        ]
+        self.assertListEqual(cartesian_product_tshirts(colors, sizes), tshirts)
+        self.assertListEqual(cartesian_product_tshirts_nestedloop(colors, sizes), tshirts)
+
+        l1 = [10, 20, 30]
+        l2 = [2, 4, 6]
+        l1_product_l2 = [20, 40, 60, 40, 80, 120, 60, 120, 180]
+
+        self.assertListEqual(cartesian_product(l1, l2), l1_product_l2)
+
+    def test_get_codes_from_symbols_more_eff_using_genexp(self):
+        symbols = '$¢£¥€¤'
+        self.assertListEqual(generate_codes_using_genexp(symbols), [36, 162, 163, 165, 8364, 164])
+
