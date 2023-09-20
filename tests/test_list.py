@@ -1,5 +1,6 @@
 import collections
 import unittest
+from array import array
 from collections.abc import Sequence
 
 from kata_1.list import *
@@ -56,7 +57,7 @@ class TestList(unittest.TestCase):
         self.assertListEqual(list_slicing_last_three_lowercase_letters(letters), ['b', 'c', 'd'])
         self.assertListEqual(list_slicing_medium_uppercase_letters(letters), ['B', 'C'])
         self.assertListEqual(list_slicing_reverse_all_letters(letters), ['d', 'D', 'c', 'C', 'b', 'B', 'a', 'A'])
-        self.assertListEqual(list_slicing_uppercase_using_slice_operator(letters), ['A', 'B', 'C', 'D'])
+        self.assertListEqual(list_slicing_uppercase_using_slice_constructor(letters), ['A', 'B', 'C', 'D'])
 
     def test_creating_codelist_using_listcomps(self):
         symbols = '$¢£¥€¤'
@@ -64,7 +65,7 @@ class TestList(unittest.TestCase):
         self.assertListEqual(generate_code_list_using_listcomps(symbols), [36, 162, 163, 165, 8364, 164])
 
     def test_creating_codelist_using_listcomps_with_localscopevar_walrusop(self):
-        self.assertEquals(generate_code_list_using_listcomps_without_walrusop(), [65, 66, 67])
+        self.assertEquals(generate_code_list_using_listcomps_without_walrusop('ABC'), [65, 66, 67])
         last = 67
         self.assertEquals(generate_code_list_using_listcomps_walrusop('ABC'), (last, [65, 66, 67]))
 
