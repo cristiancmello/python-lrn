@@ -1,3 +1,5 @@
+import os.path
+
 lax_coordinates = (33.9425, -118.408056)
 
 tokyo_data_tuple_as_record = ('Tokyo', 2003, 32_450, 0.66, 8014)
@@ -87,6 +89,46 @@ def repeat_concat(t):
 
 def reversed_repeated_concat(t):
     return 2 * t
+
+
+def get_coord_unpacking_tuple(t, coord):
+    if coord == 'lat':
+        lat, _ = t
+        return lat
+    elif coord == 'long':
+        _, long = t
+        return long
+
+
+def powerful_swap_using_unpack(t):
+    lat, long = t
+    long, lat = lat, long
+
+    return lat, long
+
+
+def unpacking_tuple_as_arg_for_divmod(t: tuple) -> tuple:
+    return divmod(*t)
+
+
+def get_basename_using_unpacking_ospathsplit(file):
+    basename, _ = os.path.split(file)
+    return basename
+
+
+def grab_excess_items(t: tuple):
+    a, b, *rest = t
+    return a, b, rest
+
+
+def grab_excess_items_medium_pos(t: tuple):
+    a, *body, c, d = t
+    return a, body, c, d
+
+
+def grab_excess_items_header_pos(t: tuple):
+    *header, b, c, d = t
+    return header, b, c, d
 
 
 def generate_codes_using_genexp(symbols):

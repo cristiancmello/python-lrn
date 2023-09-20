@@ -15,7 +15,7 @@ class TestTuple(unittest.TestCase):
         self.assertEqual(year, 2003)
         self.assertEqual(pop, 32_450)
         self.assertEqual(chg, 0.66)
-        self.assertEqual(area,8014)
+        self.assertEqual(area, 8014)
 
     def test_iterating_over_list_of_tuples(self):
         traveler_ids = [('USA', '31195855'), ('BRA', 'CE342567'), ('ESP', 'XDA205856')]
@@ -85,6 +85,36 @@ USA/31195855
 
         b = (99, 88)
         self.assertTupleEqual(reversed_repeated_concat(b), (99, 88, 99, 88))
+
+    def test_unpacking_tuples(self):
+        coords = (33.9425, -118.408056)
+        self.assertEqual(get_coord_unpacking_tuple(coords, 'lat'), 33.9425)
+        self.assertEqual(get_coord_unpacking_tuple(coords, 'long'), -118.408056)
+
+        swapped_coords = (-118.408056, 33.9425)
+        self.assertEqual(powerful_swap_using_unpack(coords), swapped_coords)
+
+        # divmod(20, 8) <=> 20 / 8 = 2 remaind 4 => (2, 4)
+        self.assertTupleEqual(unpacking_tuple_as_arg_for_divmod((20, 8)), (2, 4))
+
+        filename = './test_tuple.py'
+        current_dir = '.'
+        self.assertEqual(current_dir, get_basename_using_unpacking_ospathsplit(filename))
+
+    def test_getting_excess_argument_head_tail(self):
+        t = tuple(range(5))
+        self.assertTupleEqual(grab_excess_items(t), (0, 1, [2, 3, 4]))
+
+        t = tuple(range(3))
+        self.assertTupleEqual(grab_excess_items(t), (0, 1, [2]))
+
+        t = tuple(range(2))
+        self.assertTupleEqual(grab_excess_items(t), (0, 1, []))
+
+        t = tuple(range(5))
+        self.assertTupleEqual(grab_excess_items_medium_pos(t), (0, [1, 2], 3, 4))
+        self.assertTupleEqual(grab_excess_items_header_pos(t), ([0, 1], 2, 3, 4))
+
 
     def test_get_codes_from_symbols_more_eff_using_genexp(self):
         symbols = '$¢£¥€¤'
