@@ -115,7 +115,6 @@ USA/31195855
         self.assertTupleEqual(grab_excess_items_medium_pos(t), (0, [1, 2], 3, 4))
         self.assertTupleEqual(grab_excess_items_header_pos(t), ([0, 1], 2, 3, 4))
 
-
     def test_get_codes_from_symbols_more_eff_using_genexp(self):
         symbols = '$¢£¥€¤'
         self.assertTupleEqual(generate_codes_using_genexp(symbols), (36, 162, 163, 165, 8364, 164))
