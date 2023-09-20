@@ -14,4 +14,4 @@ white S
 white M
 white L
 """
-        self.assertEquals(generate_tshirts_strseq(colors, sizes), strseq)
+        self.assertEqual(generate_tshirts_strseq(colors, sizes), strseq)

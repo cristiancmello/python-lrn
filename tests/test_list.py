@@ -20,8 +20,8 @@ class TestList(unittest.TestCase):
         self.assertListEqual(an_ordered_list, ['orange', 'apple', 'grape'])
 
     def test_get_list_index(self):
-        self.assertEquals(an_ordered_list[0], 'orange')
-        self.assertEquals(an_ordered_list[1], 'apple')
+        self.assertEqual(an_ordered_list[0], 'orange')
+        self.assertEqual(an_ordered_list[1], 'apple')
 
     def test_list_can_be_heterogeneous(self):
         self.assertIsInstance(heterogeneous_list[0], str)
@@ -65,13 +65,13 @@ class TestList(unittest.TestCase):
         self.assertListEqual(generate_code_list_using_listcomps(symbols), [36, 162, 163, 165, 8364, 164])
 
     def test_creating_codelist_using_listcomps_with_localscopevar_walrusop(self):
-        self.assertEquals(generate_code_list_using_listcomps_without_walrusop('ABC'), [65, 66, 67])
+        self.assertEqual(generate_code_list_using_listcomps_without_walrusop('ABC'), [65, 66, 67])
         last = 67
-        self.assertEquals(generate_code_list_using_listcomps_walrusop('ABC'), (last, [65, 66, 67]))
+        self.assertEqual(generate_code_list_using_listcomps_walrusop('ABC'), (last, [65, 66, 67]))
 
     def test_listcomps_vs_lambda_mapfilter_beyond_ascii(self):
-        self.assertEquals(beyond_ascii_listcomps('$¢£¥€¤'), [162, 163, 165, 8364, 164])
-        self.assertEquals(beyond_ascii_mapfilter('$¢£¥€¤'), [162, 163, 165, 8364, 164])
+        self.assertEqual(beyond_ascii_listcomps('$¢£¥€¤'), [162, 163, 165, 8364, 164])
+        self.assertEqual(beyond_ascii_mapfilter('$¢£¥€¤'), [162, 163, 165, 8364, 164])
 
     def test_cartesian_product(self):
         colors = ['black', 'white']
