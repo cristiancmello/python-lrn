@@ -71,7 +71,7 @@ def count_elements(t: tuple, e):
     return t.count(e)
 
 
-def get_index_from_tuple(t, p):
+def get_value_from_tuple(t, p):
     return t[p]
 
 

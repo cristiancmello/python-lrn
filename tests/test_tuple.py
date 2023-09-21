@@ -71,7 +71,7 @@ USA/31195855
         self.assertEqual(count_elements(c, 1), 2)
 
         position = 2
-        self.assertEqual(get_index_from_tuple(c, position), 1)
+        self.assertEqual(get_value_from_tuple(c, position), 1)
 
         position_of_first_occurrence_of_element = 3
         element = 3
