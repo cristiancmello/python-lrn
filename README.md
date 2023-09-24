@@ -5,5 +5,5 @@
 ```
 Day 1: list
 Day 2: tuple
-Day 3: list, tuple, array
+Day 3: list, tuple, array, stack impl w tuple
 ```
