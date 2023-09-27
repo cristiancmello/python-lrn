@@ -1,28 +1,28 @@
-import array
+from array import array
 
 
 class Stack:
     def __init__(self):
-        self._elements = array.array('I', list(0 for _ in range(2)))
-        self._size = 0
+        self.__elements = array('I', list(0 for _ in range(2)))
+        self.__size = 0
 
     def is_empty(self):
-        return self._size == 0
+        return self.__size == 0
 
-    def push(self, element):
-        self._size += 1
-        self._elements[self._size - 1] = element
-
-    def pop(self) -> int:
-        if self._size == 0:
-            raise Underflow('Underflow error!')
-
-        self._size -= 1
-        return self._elements[self._size]
+    def push(self, e: int):
+        self.__elements[self.__size] = e
+        self.__size += 1
 
     def size(self):
-        return self._size
+        return self.__size
+
+    def pop(self):
+        if self.__size == 0:
+            raise StackUnderflowError
+
+        self.__size -= 1
+        return self.__elements[self.__size]
 
 
-class Underflow(RuntimeError):
+class StackUnderflowError(RuntimeError):
     pass
