@@ -101,6 +101,10 @@ USA/31195855
         current_dir = '.'
         self.assertEqual(current_dir, get_basename_using_unpacking_ospathsplit(filename))
 
+        # TODO: verify
+        t = (1,)
+        first, = t
+
     def test_getting_excess_argument_head_tail(self):
         t = tuple(range(5))
         self.assertTupleEqual(grab_excess_items(t), (0, 1, [2, 3, 4]))
