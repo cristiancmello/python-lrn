@@ -4,7 +4,14 @@ list_is_container_mutable_sequence = []
 
 an_ordered_list = ['orange', 'apple', 'grape']
 
-heterogeneous_list = ['str', 0.99, (1, 2), array.array('I', [1, 2]), [2], {'name': 'John'}]
+heterogeneous_list = [
+    str(),
+    2.1,
+    (1, 2),
+    array.array('I', [1]),
+    list([1, 2]),
+    {'name': 'John'}
+]
 
 list_created_by_literals = ['banana', 'apple']
 
@@ -48,12 +55,16 @@ def list_slicing_first_three_letters(letters: list):
     return letters[:3]
 
 
-def list_slicing_last_letter(letters: list):
+def list_slicing_get_last_letter_in_list(letters: list):
     return letters[-1:]
 
 
+def list_slicing_get_last_letter(letters: list):
+    return letters[-1]
+
+
 def list_slicing_last_three_lowercase_letters(letters: list):
-    return letters[-5::2]
+    return letters[3::2]
 
 
 def list_slicing_medium_uppercase_letters(letters: list):
@@ -69,28 +80,26 @@ def list_slicing_uppercase_using_slice_constructor(letters: list):
 
 
 def generate_code_list_using_forloop(symbols: str) -> list[int]:
-    codes = []
-
+    codelist = []
     for s in symbols:
-        codes.append(ord(s))
-
-    return codes
+        codelist.append(ord(s))
+    return codelist
 
 
 def generate_code_list_using_listcomps(symbols: str) -> list[int]:
     return [ord(s) for s in symbols]
 
 
-def generate_code_list_using_listcomps_without_walrusop(symbols: str):
-    return [ord(s) for s in symbols]
+def generate_code_list_using_listcomps_without_walrusop(symbols: str) -> list[int]:
+    return [ord(c) for c in symbols]
 
 
-def generate_code_list_using_listcomps_walrusop(input: str) -> tuple:
-    codes = [latest := ord(s) for s in input]
-    return latest, codes
+def generate_code_list_using_listcomps_walrusop(symbols: str) -> tuple[int, list[int]]:
+    codelist = [last := ord(s) for s in symbols]
+    return last, codelist
 
 
-def beyond_ascii_listcomps(symbols: str) -> list[int]:
+def beyond_ascii_listcomps(symbols: str):
     return [ord(s) for s in symbols if ord(s) > 127]
 
 

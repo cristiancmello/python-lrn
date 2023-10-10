@@ -101,9 +101,8 @@ USA/31195855
         current_dir = '.'
         self.assertEqual(current_dir, get_basename_using_unpacking_ospathsplit(filename))
 
-        # TODO: verify
-        t = (1,)
-        first, = t
+        first, = get_tuple_comma_termination()
+        self.assertEqual(first, 1)
 
     def test_getting_excess_argument_head_tail(self):
         t = tuple(range(5))
